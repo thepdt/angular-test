@@ -1,0 +1,10 @@
+<div
+  class="mosaic-layer-container"
+  [style]="{ width: containerWidth, height: containerHeight }"
+>
+  <app-gif-card
+    *ngFor="let gif of gifs"
+    [gif]="gif"
+    [width]="itemWidth"
+  ></app-gif-card>
+</div>

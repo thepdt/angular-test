@@ -1,0 +1,16 @@
+<div class="home-container">
+  <div class="search-input">
+    <input
+      autoFocus
+      type="text"
+      placeholder="Start searching for gifs!"
+      [formControl]="searchControl"
+    />
+  </div>
+  <app-mosaic-layer
+    [width]="mosaicLayerOptions.width"
+    [columns]="mosaicLayerOptions.columns"
+    [gutter]="16"
+    [gifList]="gifs"
+  ></app-mosaic-layer>
+</div>
