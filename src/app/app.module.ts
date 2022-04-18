@@ -1,32 +1,26 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpHeadersInterceptor } from './@core/interceptors/http-headers.interceptor';
-import { HttpErrorsInterceptor } from './@core/interceptors/http-errors.interceptor';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpHeadersInterceptor} from './@core/interceptors/http-headers.interceptor';
+import {HttpErrorsInterceptor} from './@core/interceptors/http-errors.interceptor';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
-import { DetailComponent } from './pages/detail/detail.component';
-import { FavoritesComponent } from './pages/favorites/favorites.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MosaicLayerComponent } from './components/mosaic-layer/mosaic-layer.component';
-import { GifCardComponent } from './components/gif-card/gif-card.component';
-import { FavoriteIconComponent } from './components/favorite-icon/favorite-icon.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavigationComponent} from './components/navigation/navigation.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MosaicLayerComponent} from './components/mosaic-layer/mosaic-layer.component';
+import {GifCardComponent} from './components/gif-card/gif-card.component';
+import {FavoriteIconComponent} from './components/favorite-icon/favorite-icon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    DetailComponent,
-    FavoritesComponent,
     NavigationComponent,
     MosaicLayerComponent,
     GifCardComponent,
-    FavoriteIconComponent,
+    FavoriteIconComponent
   ],
   imports: [
     BrowserModule,
