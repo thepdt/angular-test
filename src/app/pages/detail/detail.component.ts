@@ -1,11 +1,9 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Gif, GifWithPosition } from 'src/app/models/giphy';
-import { HttpService } from 'src/app/services/http.service';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
-import { ViewportRuler } from '@angular/cdk/scrolling';
+import {Component, NgZone, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {ViewportRuler} from '@angular/cdk/scrolling';
+import {GifWithPosition} from "@core/models/giphy";
+import {HttpService} from "@core/services/http.service";
 
 @Component({
   selector: 'app-detail',

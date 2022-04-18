@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GifWithPosition } from 'src/app/models/giphy';
+import { GifWithPosition } from 'src/app/@core/models/giphy';
 
 @Component({
   selector: 'app-favorite-icon',
@@ -7,12 +7,13 @@ import { GifWithPosition } from 'src/app/models/giphy';
   styleUrls: ['./favorite-icon.component.scss'],
 })
 export class FavoriteIconComponent implements OnInit {
-  public isFavorite: boolean | null = null;
+  public isFavorite?: boolean;
   @Input() gif!: GifWithPosition;
   constructor() {}
 
   ngOnInit(): void {}
+
   toggleFavorite() {
-    this.isFavorite = !!!this.isFavorite;
+    this.isFavorite = !this.isFavorite;
   }
 }

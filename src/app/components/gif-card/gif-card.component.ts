@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Gif, GifWithPosition } from 'src/app/models/giphy';
-import { getGifHeight } from 'src/app/utils/gif.util';
+import { Gif, GifWithPosition } from 'src/app/@core/models/giphy';
+import { getGifHeight } from 'src/app/@core/utils/gif.util';
 
 @Component({
   selector: 'app-gif-card',
@@ -20,21 +20,22 @@ export class GifCardComponent implements OnInit {
 
   @Input() gif!: GifWithPosition;
   @Input() width!: number;
+
+  getRandomColor = ['#00ccff', '#00ff99', '#9933ff', '#ff6666', '#fff35c'][
+    Math.round(Math.random() * 4)
+    ];
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
   ngOnChanges(changes: SimpleChanges) {
     if (!!changes['width']) {
       this.height = getGifHeight(this.gif, changes['width'].currentValue);
     }
   }
 
-  getRandomColor = ['#00ccff', '#00ff99', '#9933ff', '#ff6666', '#fff35c'][
-    Math.round(Math.random() * 4)
-  ];
-
   selectGif() {
-    console.log('select gif');
-    this.router.navigate(['/gif', this.gif.id]);
+    this.router.navigate(['/gif', this.gif.id]).then();
   }
 }
