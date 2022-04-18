@@ -1,4 +1,4 @@
-import { Gif } from 'src/app/models/giphy';
+import { Gif } from 'src/app/@core/models/giphy';
 
 export const getGifHeight = (gif: Gif, gifWidth: number) => {
   var images = gif.images;

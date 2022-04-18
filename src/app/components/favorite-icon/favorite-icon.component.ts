@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GifWithPosition } from 'src/app/models/giphy';
+import { GifWithPosition } from 'src/app/@core/models/giphy';
 
 @Component({
   selector: 'app-favorite-icon',

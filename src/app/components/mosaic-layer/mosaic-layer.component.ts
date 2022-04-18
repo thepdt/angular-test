@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { Gif, GifWithPosition } from 'src/app/models/giphy';
-import { fillArray, getGifHeight } from 'src/app/utils/gif.util';
+import { Gif, GifWithPosition } from 'src/app/@core/models/giphy';
+import { fillArray, getGifHeight } from 'src/app/@core/utils/gif.util';
 
 @Component({
   selector: 'app-mosaic-layer',
