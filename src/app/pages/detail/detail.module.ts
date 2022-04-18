@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DetailComponent} from "./detail.component";
 import {RouterModule} from "@angular/router";
+import {BytesModule} from "../../pipes/bytes/bytes.module";
 
 @NgModule({
   declarations: [DetailComponent],
@@ -13,6 +14,7 @@ import {RouterModule} from "@angular/router";
         component: DetailComponent,
       },
     ]),
+    BytesModule,
   ]
 })
 export class DetailModule { }

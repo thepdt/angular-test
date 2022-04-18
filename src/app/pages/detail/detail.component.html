@@ -1,1 +1,39 @@
-<div class="detail-container"></div>
+<div class="detail-container">
+  <div class="content">
+    <div class="infomation" [style]="{ width: gifWidth + 'px' }">
+      <div class="title">{{ gif.title }}</div>
+      <div class="detail">
+        <div class="gif-info">
+          <p>
+            Dimensions:
+            <strong
+              >{{ gif.images.downsized.width }} x
+              {{ gif.images.downsized.height }}</strong
+            >
+          </p>
+          <p>
+            Size: <strong>{{ gif.images.downsized.size | bytes }}</strong>
+          </p>
+          <p>
+            Rating: <strong>{{ gif.rating | uppercase }}</strong>
+          </p>
+        </div>
+        <div class="user-info">
+          <p>
+            User: <strong>{{ gif.user.display_name }}</strong>
+          </p>
+          <p>
+            Username: <strong>{{ gif.user.username }}</strong>
+          </p>
+          <p>
+            Uploaded:
+            <strong>{{ gif.import_datetime | date: "MMMM d y" }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="gif">
+      <app-gif-card [gif]="gif" [width]="gifWidth"></app-gif-card>
+    </div>
+  </div>
+</div>
