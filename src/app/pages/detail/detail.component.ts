@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Gif } from 'src/app/models/giphy';
-import { HttpService } from 'src/app/services/http.service';
+import { Gif } from 'src/app/@core/models/giphy';
+import { HttpService } from 'src/app/@core/services/http.service';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { ViewportRuler } from '@angular/cdk/scrolling';

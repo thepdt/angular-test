@@ -1,0 +1,14 @@
+<div
+  class="gif-card-container"
+  [style]="{ top: gif.position.top, left: gif.position.left }"
+>
+  <img
+    [src]="gif.images.downsized.url"
+    [style]="{ backgroundColor: getRandomColor }"
+    [width]="width"
+    [height]="height"
+    [alt]="gif.title"
+    (click)="selectGif()"
+  />
+  <app-favorite-icon class="favorite-icon" [gif]="gif"></app-favorite-icon>
+</div>

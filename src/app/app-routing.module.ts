@@ -1,25 +1,22 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/pages/home/home.component';
-import { FavoritesComponent } from './components/pages/favorites/favorites.component';
-import { DetailComponent } from './components/pages/detail/detail.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadChildren: async () => (await import('@pages/home/home.module')).HomeModule
   },
   {
     path: 'search/:gif-search',
-    component: HomeComponent,
+    loadChildren: async () => (await import('@pages/home/home.module')).HomeModule
   },
   {
     path: 'gif/:gifId',
-    component: DetailComponent,
+    loadChildren: async () => (await import('@pages/detail/detail.module')).DetailModule
   },
   {
     path: 'favorites',
-    component: FavoritesComponent,
+    loadChildren: async () => (await import('@pages/favorites/favorites.module')).FavoritesModule
   },
 ];
 
