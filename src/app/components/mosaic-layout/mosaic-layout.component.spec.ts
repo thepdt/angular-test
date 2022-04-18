@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MosaicLayerComponent } from './mosaic-layer.component';
+import { MosaicLayoutComponent } from './mosaic-layout.component';
 
 describe('FavoritesComponent', () => {
-  let component: MosaicLayerComponent;
-  let fixture: ComponentFixture<MosaicLayerComponent>;
+  let component: MosaicLayoutComponent;
+  let fixture: ComponentFixture<MosaicLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MosaicLayerComponent],
+      declarations: [MosaicLayoutComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MosaicLayerComponent);
+    fixture = TestBed.createComponent(MosaicLayoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

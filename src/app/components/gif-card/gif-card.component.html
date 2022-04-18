@@ -3,13 +3,12 @@
   [style]="{ top: gif.position.top, left: gif.position.left }"
 >
   <img
-    suppressHydrationWarning
-    src="{{ gif.images.downsized.url }}"
+    [src]="gif.images.downsized.url"
     [style]="{ backgroundColor: getRandomColor }"
-    width="{{ width }}"
-    height="{{ height }}"
-    alt="{{ gif.title }}"
+    [width]="width"
+    [height]="height"
+    [alt]="gif.title"
     (click)="selectGif()"
   />
-  <app-favorite-icon class="favorite-icon" (gif)="(gif)"></app-favorite-icon>
+  <app-favorite-icon class="favorite-icon" [gif]="gif"></app-favorite-icon>
 </div>

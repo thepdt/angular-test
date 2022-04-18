@@ -7,12 +7,13 @@ import { GifWithPosition } from 'src/app/@core/models/giphy';
   styleUrls: ['./favorite-icon.component.scss'],
 })
 export class FavoriteIconComponent implements OnInit {
-  public isFavorite: boolean | null = null;
+  public isFavorite?: boolean;
   @Input() gif!: GifWithPosition;
   constructor() {}
 
   ngOnInit(): void {}
+
   toggleFavorite() {
-    this.isFavorite = !!!this.isFavorite;
+    this.isFavorite = !this.isFavorite;
   }
 }

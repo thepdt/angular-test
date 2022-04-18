@@ -4,10 +4,10 @@ import { fillArray, getGifHeight } from 'src/app/@core/utils/gif.util';
 
 @Component({
   selector: 'app-mosaic-layer',
-  templateUrl: './mosaic-layer.component.html',
-  styleUrls: ['./mosaic-layer.component.scss'],
+  templateUrl: './mosaic-layout.component.html',
+  styleUrls: ['./mosaic-layout.component.scss'],
 })
-export class MosaicLayerComponent {
+export class MosaicLayoutComponent {
   public itemWidth!: number;
   public containerWidth!: string;
   public containerHeight!: string;
