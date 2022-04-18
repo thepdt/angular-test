@@ -1,15 +1,24 @@
-.home-container {
+.detail-container {
   padding: 24px;
-  .search-input {
-    margin: 16px auto;
-    width: 75%;
-
-    input {
-      font-size: 20px;
-      outline: none;
-      border: 0;
-      border-bottom: solid 1px #111;
-      width: 100%;
+  .content {
+    width: fit-content;
+    margin: auto;
+    .infomation {
+      .title {
+        font-size: 20px;
+        margin-bottom: 28px;
+      }
+      .detail {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        p {
+          margin-bottom: 8px;
+        }
+      }
+    }
+    .gif {
+      position: relative;
     }
   }
 }

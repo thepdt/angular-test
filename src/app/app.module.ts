@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MosaicLayerComponent } from './components/shares/mosaic-layer/mosaic-layer.component';
 import { GifCardComponent } from './components/shares/gif-card/gif-card.component';
 import { FavoriteIconComponent } from './components/shares/favorite-icon/favorite-icon.component';
+import { BytesModule } from './pipes/bytes/bytes.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FavoriteIconComponent } from './components/shares/favorite-icon/favorit
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BytesModule,
   ],
   providers: [
     {
