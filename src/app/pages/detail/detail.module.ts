@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {DetailComponent} from "./detail.component";
 import {RouterModule} from "@angular/router";
 import {BytesModule} from "../../pipes/bytes/bytes.module";
+import {GifCardModule} from "../../components/gif-card/gif-card.module";
 
 @NgModule({
   declarations: [DetailComponent],
@@ -15,6 +16,7 @@ import {BytesModule} from "../../pipes/bytes/bytes.module";
       },
     ]),
     BytesModule,
+    GifCardModule,
   ]
 })
 export class DetailModule { }
