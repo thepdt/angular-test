@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GifCardComponent } from './gif-card.component';
+import { FavoriteIconComponent } from './favorite-icon.component';
 
-describe('GifCardComponent', () => {
-  let component: GifCardComponent;
-  let fixture: ComponentFixture<GifCardComponent>;
+describe('FavoriteIconComponent', () => {
+  let component: FavoriteIconComponent;
+  let fixture: ComponentFixture<FavoriteIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GifCardComponent],
+      declarations: [FavoriteIconComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GifCardComponent);
+    fixture = TestBed.createComponent(FavoriteIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

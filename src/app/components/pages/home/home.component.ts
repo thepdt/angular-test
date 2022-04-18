@@ -1,10 +1,4 @@
-import {
-  Component,
-  HostListener,
-  NgZone,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Gif } from 'src/app/models/giphy';
@@ -18,7 +12,7 @@ import { ViewportRuler } from '@angular/cdk/scrolling';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   public gifs: Array<Gif> = [];
   public mosaicLayerOptions: any = {};
   private routeSub: Subscription = new Subscription();

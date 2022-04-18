@@ -1,0 +1,67 @@
+@keyframes favoriteHover {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes favorite {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200px 0;
+  }
+}
+
+@keyframes unFavorite {
+  0% {
+    background-position: 0 -40px;
+  }
+  100% {
+    background-position: -200px -40px;
+  }
+}
+
+.favorite-icon {
+  width: 36px;
+  height: 36px;
+  background: no-repeat url("/assets/images/favorite.png") 0 0;
+  background-color: transparent;
+  background-size: 240px 80px;
+  overflow: hidden;
+  position: relative;
+
+  &:before,
+  &:after {
+    background: inherit;
+    background-size: inherit;
+    content: "";
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:hover:before {
+    display: block;
+    animation: favoriteHover 1s ease-out 0s infinite;
+  }
+
+  &:hover:after {
+    display: block;
+    animation: favoriteHover 1s ease-out 0.3s infinite forwards;
+  }
+
+  &.active {
+    background-position: 0 -40px;
+    animation: favorite 0.3s steps(5);
+  }
+  &.unFavorite {
+    animation: unFavorite 0.5s steps(5);
+  }
+}

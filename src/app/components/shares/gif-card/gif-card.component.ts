@@ -20,7 +20,7 @@ export class GifCardComponent implements OnInit {
 
   @Input() gif!: GifWithPosition;
   @Input() width!: number;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges) {
@@ -32,4 +32,9 @@ export class GifCardComponent implements OnInit {
   getRandomColor = ['#00ccff', '#00ff99', '#9933ff', '#ff6666', '#fff35c'][
     Math.round(Math.random() * 4)
   ];
+
+  selectGif() {
+    console.log('select gif');
+    this.router.navigate(['/gif', this.gif.id]);
+  }
 }

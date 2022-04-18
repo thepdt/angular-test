@@ -10,21 +10,28 @@ import { APIResponse, Gif } from '../models/giphy';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
-  getTrendingGifs(offset: number): Observable<APIResponse<Gif>> {
+  getTrendingGifs(offset: number): Observable<APIResponse<Gif[]>> {
     let params = new HttpParams()
       .set('api_key', env.GIPHY_KEY)
       .set('offset', offset);
-    return this.http.get<APIResponse<Gif>>(`${env.BASE_URL}/trending`, {
+    return this.http.get<APIResponse<Gif[]>>(`${env.BASE_URL}/trending`, {
       params: params,
     });
   }
 
-  searchGifs(key: string, offset: number): Observable<APIResponse<Gif>> {
+  searchGifs(key: string, offset: number): Observable<APIResponse<Gif[]>> {
     let params = new HttpParams()
       .set('api_key', env.GIPHY_KEY)
       .set('q', key)
       .set('offset', offset);
-    return this.http.get<APIResponse<Gif>>(`${env.BASE_URL}/search`, {
+    return this.http.get<APIResponse<Gif[]>>(`${env.BASE_URL}/search`, {
+      params: params,
+    });
+  }
+
+  getGifById(id: string): Observable<APIResponse<Gif>> {
+    let params = new HttpParams().set('api_key', env.GIPHY_KEY);
+    return this.http.get<APIResponse<Gif>>(`${env.BASE_URL}/${id}`, {
       params: params,
     });
   }

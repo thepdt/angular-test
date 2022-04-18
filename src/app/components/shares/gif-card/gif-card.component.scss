@@ -1,3 +1,9 @@
 .gif-card-container {
   position: absolute;
+  cursor: pointer;
+  .favorite-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
