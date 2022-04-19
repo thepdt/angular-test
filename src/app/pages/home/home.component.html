@@ -7,10 +7,13 @@
       [formControl]="searchControl"
     />
   </div>
-  <app-mosaic-layer
-    [width]="mosaicLayerOptions.width"
-    [columns]="mosaicLayerOptions.columns"
-    [gutter]="16"
-    [gifList]="gifs"
-  ></app-mosaic-layer>
+  <app-loading *ngIf="isLoading; else layer"></app-loading>
+  <ng-template #layer>
+    <app-mosaic-layer
+      [width]="mosaicLayerOptions.width"
+      [columns]="mosaicLayerOptions.columns"
+      [gutter]="16"
+      [gifList]="gifs"
+    ></app-mosaic-layer>
+  </ng-template>
 </div>

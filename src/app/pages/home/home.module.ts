@@ -1,16 +1,17 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HomeComponent} from "./home.component";
-import {RouterModule} from "@angular/router";
-import {MosaicLayoutModule} from "../../components/mosaic-layout/mosaic-layout.module";
-import {ReactiveFormsModule} from "@angular/forms";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { MosaicLayoutModule } from '../../components/mosaic-layout/mosaic-layout.module';
+import { LoadingModule } from './../../components/loading/loading.module';
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule,
     MosaicLayoutModule,
+    LoadingModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {
@@ -18,6 +19,6 @@ import {ReactiveFormsModule} from "@angular/forms";
         component: HomeComponent,
       },
     ]),
-  ]
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}
