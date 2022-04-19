@@ -1,9 +1,7 @@
 #loader {
   width: 500px;
-  position: absolute;
   text-align: center;
-  left: calc(50% - 250px);
-  top: calc(50% - 10px);
+  margin: auto;
 
   .square {
     display: inline-block;

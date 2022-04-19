@@ -5,14 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BytesPipe implements PipeTransform {
   transform(bytes: number | string, decimals = 2): string {
-    if (typeof bytes === 'string') {
-      bytes = Number(bytes);
-    }
-    console.log(bytes);
-
-    if (bytes === 0) {
-      return '0 Bytes';
-    }
+    if (typeof bytes === 'string') bytes = Number(bytes);
+    if (bytes === 0) return '0 Bytes';
 
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;

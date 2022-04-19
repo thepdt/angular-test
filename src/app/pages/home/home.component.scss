@@ -12,4 +12,13 @@
       width: 100%;
     }
   }
+  .loading {
+    position: absolute;
+    left: calc(50% - 250px);
+    top: calc(50% - 10px);
+  }
+
+  .loading-more {
+    margin-top: 64px;
+  }
 }

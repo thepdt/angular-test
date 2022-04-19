@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public gifs: Array<Gif> = [];
   public mosaicLayerOptions: any = {};
   public isLoading = false;
+  public isLoadingMore = false;
   public isError = false;
 
   searchControl: FormControl = new FormControl('');
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.searchControl.valueChanges
-      .pipe(debounceTime(300), distinctUntilChanged(), takeUntil(this.destroy))
+      .pipe(debounceTime(500), distinctUntilChanged(), takeUntil(this.destroy))
       .subscribe((model) => this.router.navigate(['/search', model]));
 
     this.activatedRoute.params
@@ -64,7 +65,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getTrendingGifs(offset: number): void {
-    this.isLoading = true;
+    if (this.gifs.length === 0) this.isLoading = true;
+    else this.isLoadingMore = true;
     this.isError = false;
     this.httpService
       .getTrendingGifs(offset)
@@ -73,16 +75,20 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.isError = true;
           throw error;
         }),
-        finalize(() => (this.isLoading = false)),
+        finalize(() => {
+          this.isLoading = false;
+          this.isLoadingMore = false;
+        }),
         takeUntil(this.destroy)
       )
       .subscribe((data) => {
-        this.gifs = data.data;
+        this.gifs = [...this.gifs, ...data.data];
       });
   }
 
   searchGifs(key: string, offset: number): void {
-    this.isLoading = true;
+    if (this.gifs.length === 0) this.isLoading = true;
+    else this.isLoadingMore = true;
     this.isError = false;
     this.httpService
       .searchGifs(key, offset)
@@ -91,10 +97,13 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.isError = true;
           throw error;
         }),
-        finalize(() => (this.isLoading = false))
+        finalize(() => {
+          this.isLoading = false;
+          this.isLoadingMore = false;
+        })
       )
       .subscribe((data) => {
-        this.gifs = data.data;
+        this.gifs = [...this.gifs, ...data.data];
       });
   }
 
@@ -116,6 +125,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.mosaicLayerOptions.columns = 5;
         break;
     }
+  }
+
+  onScroll() {
+    if (this.isLoadingMore) return;
+    if (this.searchControl.value)
+      this.searchGifs(this.searchControl.value, this.gifs.length);
+    else this.getTrendingGifs(this.gifs.length);
   }
 
   ngOnDestroy(): void {}

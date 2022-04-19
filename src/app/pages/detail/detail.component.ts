@@ -57,7 +57,6 @@ export class DetailComponent implements OnInit, OnDestroy {
       )
       .subscribe((data) => {
         this.gif = { ...data.data, position: { top: '0px', left: '0px' } };
-        console.log(this.gif.position);
       });
   }
 
