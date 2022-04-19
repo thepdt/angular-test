@@ -1,16 +1,28 @@
 <div class="navigation-container">
-  <a
-    routerLink="/"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="nav"
-    >Trending</a
-  >
-  <a
-    routerLink="/favorites"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="nav"
-    >Favorites</a
-  >
+  <div class="nav">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link"
+      (click)="selectLink()"
+      >Trending</a
+    >
+    <a
+      routerLink="/favorites"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link"
+      (click)="selectLink()"
+      >Favorites</a
+    >
+  </div>
+  <div class="search-input">
+    <input
+      autoFocus
+      type="text"
+      placeholder="Searching for gifs!"
+      [formControl]="searchControl"
+    />
+  </div>
 </div>

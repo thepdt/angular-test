@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NavigationComponent} from "./navigation.component";
-import {RouterModule} from "@angular/router";
-
-
+import { NavigationComponent } from './navigation.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [NavigationComponent],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [NavigationComponent]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  exports: [NavigationComponent],
 })
-export class NavigationModule { }
+export class NavigationModule {}

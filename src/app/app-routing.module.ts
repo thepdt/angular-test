@@ -1,22 +1,30 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: async () => (await import('@pages/home/home.module')).HomeModule
+    loadChildren: async () =>
+      (await import('@pages/home/home.module')).HomeModule,
   },
   {
     path: 'search/:gif-search',
-    loadChildren: async () => (await import('@pages/home/home.module')).HomeModule
+    loadChildren: async () =>
+      (await import('@pages/home/home.module')).HomeModule,
   },
   {
     path: 'gif/:gifId',
-    loadChildren: async () => (await import('@pages/detail/detail.module')).DetailModule
+    loadChildren: async () =>
+      (await import('@pages/detail/detail.module')).DetailModule,
   },
   {
     path: 'favorites',
-    loadChildren: async () => (await import('@pages/favorites/favorites.module')).FavoritesModule
+    loadChildren: async () =>
+      (await import('@pages/favorites/favorites.module')).FavoritesModule,
+  },
+  {
+    path: '**',
+    redirectTo: '/',
   },
 ];
 

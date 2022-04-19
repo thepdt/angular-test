@@ -3,12 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription, finalize, takeUntil } from 'rxjs';
 import { Gif } from 'src/app/@core/models/giphy';
 import { HttpService } from 'src/app/@core/services/http.service';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  catchError,
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { DestroyService } from '@core/services/destroy.service';
@@ -20,13 +15,12 @@ import { DestroyService } from '@core/services/destroy.service';
   providers: [DestroyService],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  public keySearch: string = '';
   public gifs: Array<Gif> = [];
   public mosaicLayerOptions: any = {};
   public isLoading = false;
   public isLoadingMore = false;
   public isError = false;
-
-  searchControl: FormControl = new FormControl('');
 
   constructor(
     private httpService: HttpService,
@@ -41,18 +35,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.searchControl.valueChanges
-      .pipe(debounceTime(500), distinctUntilChanged(), takeUntil(this.destroy))
-      .subscribe((model) => this.router.navigate(['/search', model]));
-
     this.activatedRoute.params
       .pipe(takeUntil(this.destroy))
       .subscribe((params: Params) => {
+        this.gifs = [];
         if (params['gif-search']) {
-          this.searchControl.setValue(params['gif-search'], {
-            emitEvent: false,
-          });
-          this.searchGifs(params['gif-search'], 0);
+          this.keySearch = params['gif-search'];
+          this.searchGifs(this.keySearch, 0);
         } else {
           this.getTrendingGifs(0);
         }
@@ -129,8 +118,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onScroll() {
     if (this.isLoadingMore) return;
-    if (this.searchControl.value)
-      this.searchGifs(this.searchControl.value, this.gifs.length);
+    if (this.keySearch) this.searchGifs(this.keySearch, this.gifs.length);
     else this.getTrendingGifs(this.gifs.length);
   }
 

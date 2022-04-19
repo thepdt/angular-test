@@ -1,13 +1,4 @@
 <div class="home-container" infiniteScroll (scrolled)="onScroll()">
-  <div class="search-input">
-    <input
-      autoFocus
-      type="text"
-      placeholder="Start searching for gifs!"
-      [formControl]="searchControl"
-    />
-  </div>
-
   <div class="loading" *ngIf="isLoading; else layer">
     <app-loading></app-loading>
   </div>
