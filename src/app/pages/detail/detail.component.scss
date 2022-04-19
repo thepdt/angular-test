@@ -1,5 +1,10 @@
 .detail-container {
   padding: 24px;
+  .loading {
+    position: absolute;
+    left: calc(50% - 250px);
+    top: calc(50% - 10px);
+  }
   .content {
     width: fit-content;
     margin: auto;
