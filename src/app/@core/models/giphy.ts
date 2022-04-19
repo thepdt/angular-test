@@ -36,7 +36,7 @@ interface User {
   display_name: string;
 }
 
-interface Images {
+export interface Images {
   fixed_height: Image;
   fixed_height_still: Image;
   fixed_height_downsampled: Image;

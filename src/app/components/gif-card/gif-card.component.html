@@ -3,7 +3,7 @@
   [style]="{ top: gif.position.top, left: gif.position.left }"
 >
   <img
-    [src]="gif.images.downsized.url"
+    [src]="gif.images | images"
     [style]="{ backgroundColor: getRandomColor }"
     [width]="width"
     [height]="height"

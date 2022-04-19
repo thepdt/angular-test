@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {DetailComponent} from "./detail.component";
-import {RouterModule} from "@angular/router";
-import {BytesModule} from "../../pipes/bytes/bytes.module";
-import {GifCardModule} from "../../components/gif-card/gif-card.module";
+import { DetailComponent } from './detail.component';
+import { RouterModule } from '@angular/router';
+import { BytesModule } from '@core/pipes/bytes/bytes.module';
+import { GifCardModule } from '../../components/gif-card/gif-card.module';
 
 @NgModule({
   declarations: [DetailComponent],
@@ -17,6 +17,6 @@ import {GifCardModule} from "../../components/gif-card/gif-card.module";
     ]),
     BytesModule,
     GifCardModule,
-  ]
+  ],
 })
-export class DetailModule { }
+export class DetailModule {}
