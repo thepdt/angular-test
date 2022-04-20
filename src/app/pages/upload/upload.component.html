@@ -1,10 +1,6 @@
 <div class="upload-container">
-  <div class="loading">
-    <app-loading></app-loading>
-  </div>
-
   <ngx-dropzone (change)="onSelect($event)">
-    <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+    <ngx-dropzone-label>Drop files to upload!</ngx-dropzone-label>
     <ngx-dropzone-image-preview
       ngProjectAs="ngx-dropzone-preview"
       *ngFor="let file of fileList"
@@ -15,5 +11,7 @@
       <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
     </ngx-dropzone-image-preview>
   </ngx-dropzone>
-  <button (click)="submit()">Upload</button>
+  <button class="submit-btn" [class.loading]="isLoading" (click)="submit()">
+    <span class="btn-text">Upload</span>
+  </button>
 </div>

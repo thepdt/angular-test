@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {catchError, finalize} from 'rxjs';
-import {HttpService} from '@core/services/http.service';
-import {DestroyService} from '@core/services/destroy.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { catchError, finalize } from 'rxjs';
+import { HttpService } from '@core/services/http.service';
+import { DestroyService } from '@core/services/destroy.service';
 
 @Component({
-  selector: 'app-detail',
+  selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
   providers: [DestroyService],
@@ -23,7 +23,6 @@ export class UploadComponent implements OnInit, OnDestroy {
   onSelect(event: any) {
     console.log(event);
     this.fileList.push(...event.addedFiles);
-    console.log(this.fileList)
   }
 
   onRemove(event: any) {
