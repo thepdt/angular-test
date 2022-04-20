@@ -5,25 +5,21 @@
   </div>
   <div class="nav">
     <a
-      routerLink="/"
-      routerLinkActive="active"
+      (click)="selectLink()"
       [routerLinkActiveOptions]="{ exact: true }"
       class="nav-link"
-      (click)="selectLink()"
-      >Trending</a
+      routerLink="/"
+      routerLinkActive="active"
+    >Trending</a
     >
     <a
       routerLink="/favorites"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
       class="nav-link"
       (click)="selectLink()"
       >Favorites</a
     >
     <a
       routerLink="/upload"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
       class="nav-link"
       (click)="selectLink()"
       >Upload</a
