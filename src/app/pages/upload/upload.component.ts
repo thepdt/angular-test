@@ -1,11 +1,7 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { catchError, finalize, takeUntil } from 'rxjs';
-import { ViewportRuler } from '@angular/cdk/scrolling';
-import { GifWithPosition } from '@core/models/giphy';
-import { HttpService } from '@core/services/http.service';
-import { DestroyService } from '@core/services/destroy.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {catchError, finalize} from 'rxjs';
+import {HttpService} from '@core/services/http.service';
+import {DestroyService} from '@core/services/destroy.service';
 
 @Component({
   selector: 'app-detail',
@@ -15,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UploadComponent implements OnInit, OnDestroy {
   public isLoading = false;
-  public myFiles: File[] = [];
+  public fileList: File[] = [];
 
   constructor(
     private httpService: HttpService,
@@ -26,21 +22,22 @@ export class UploadComponent implements OnInit, OnDestroy {
 
   onSelect(event: any) {
     console.log(event);
-    this.myFiles.push(...event.addedFiles);
+    this.fileList.push(...event.addedFiles);
+    console.log(this.fileList)
   }
 
   onRemove(event: any) {
     console.log(event);
-    this.myFiles.splice(this.myFiles.indexOf(event), 1);
+    this.fileList.splice(this.fileList.indexOf(event), 1);
   }
 
   submit() {
-    console.log('files: ', this.myFiles);
+    console.log('files: ', this.fileList);
 
-    for (var i = 0; i < this.myFiles.length; i++) {
+    for (var i = 0; i < this.fileList.length; i++) {
       this.isLoading = true;
       this.httpService
-        .uploadGif(this.myFiles[i])
+        .uploadGif(this.fileList[i])
         .pipe(
           catchError((error) => {
             throw error;

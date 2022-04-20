@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
@@ -45,12 +45,10 @@ export class HttpService {
     });
   }
 
-  uploadGif(file: any): Observable<APIResponse<Gif>> {
-    let params = new HttpParams()
-      .set('api_key', env.GIPHY_KEY)
-      .set('file', file);
-    return this.http.get<APIResponse<Gif>>(`${env.UPLOAD_BASE_URL}`, {
-      params: params,
-    });
+  uploadGif(file: File): Observable<HttpEvent<Object>> {
+    const formData = new FormData();
+    formData.append('api_key', env.GIPHY_KEY);
+    formData.append('file', file);
+    return this.http.post(`${env.UPLOAD_BASE_URL}`, formData, {reportProgress: true, observe: 'events'});
   }
 }

@@ -7,7 +7,7 @@
     <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
     <ngx-dropzone-image-preview
       ngProjectAs="ngx-dropzone-preview"
-      *ngFor="let file of myFiles"
+      *ngFor="let file of fileList"
       [file]="file"
       [removable]="true"
       (removed)="onRemove(file)"
