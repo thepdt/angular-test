@@ -22,10 +22,15 @@ const routes: Routes = [
     loadChildren: async () =>
       (await import('@pages/favorites/favorites.module')).FavoritesModule,
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '/',
-  // },
+  {
+    path: 'upload',
+    loadChildren: async () =>
+      (await import('@pages/upload/upload.module')).UploadModule,
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({

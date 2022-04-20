@@ -44,4 +44,13 @@ export class HttpService {
       params: params,
     });
   }
+
+  uploadGif(file: string): Observable<APIResponse<Gif>> {
+    let params = new HttpParams()
+      .set('api_key', env.GIPHY_KEY)
+      .set('file', file);
+    return this.http.get<APIResponse<Gif>>(`${env.UPLOAD_BASE_URL}`, {
+      params: params,
+    });
+  }
 }

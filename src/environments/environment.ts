@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   BASE_URL: 'https://api.giphy.com/v1/gifs',
+  UPLOAD_BASE_URL: 'https://upload.giphy.com/v1/gifs',
   GIPHY_KEY: 's5fU67AHNdsh0Glplvig7glsn3izyKst',
 };
 

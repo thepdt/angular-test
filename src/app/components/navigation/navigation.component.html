@@ -20,6 +20,14 @@
       (click)="selectLink()"
       >Favorites</a
     >
+    <a
+      routerLink="/upload"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link"
+      (click)="selectLink()"
+      >Upload</a
+    >
   </div>
   <div class="search-input">
     <input
