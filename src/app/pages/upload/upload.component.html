@@ -2,27 +2,18 @@
   <div class="loading">
     <app-loading></app-loading>
   </div>
-  <form [formGroup]="uploadForm" (ngSubmit)="submit()">
-    <div class="form-group">
-      <label for="file">File</label>
-      <input
-        formControlName="file"
-        id="file"
-        type="file"
-        multiple
-        class="form-control"
-        (change)="onFileChange($event)"
-      />
-      <div
-        *ngIf="f['file'].touched && f['file'].invalid"
-        class="alert alert-danger"
-      >
-        <div *ngIf="f['file'].errors && f['file'].errors['required']">
-          File is required.
-        </div>
-      </div>
-    </div>
 
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+  <ngx-dropzone (change)="onSelect($event)">
+    <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+    <ngx-dropzone-image-preview
+      ngProjectAs="ngx-dropzone-preview"
+      *ngFor="let file of myFiles"
+      [file]="file"
+      [removable]="true"
+      (removed)="onRemove(file)"
+    >
+      <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+  </ngx-dropzone>
+  <button (click)="submit()">Upload</button>
 </div>

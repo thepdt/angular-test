@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BytesModule } from '@core/pipes/bytes/bytes.module';
 import { GifCardModule } from '../../components/gif-card/gif-card.module';
 import { LoadingModule } from './../../components/loading/loading.module';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [UploadComponent],
@@ -13,6 +14,7 @@ import { LoadingModule } from './../../components/loading/loading.module';
     CommonModule,
     LoadingModule,
     ReactiveFormsModule,
+    NgxDropzoneModule,
     RouterModule.forChild([
       {
         path: '',

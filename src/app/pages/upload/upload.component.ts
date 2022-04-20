@@ -15,11 +15,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UploadComponent implements OnInit, OnDestroy {
   public isLoading = false;
-  public myFiles: string[] = [];
-
-  uploadForm = new FormGroup({
-    file: new FormControl('', [Validators.required]),
-  });
+  public myFiles: File[] = [];
 
   constructor(
     private httpService: HttpService,
@@ -28,21 +24,20 @@ export class UploadComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  get f() {
-    return this.uploadForm.controls;
+  onSelect(event: any) {
+    console.log(event);
+    this.myFiles.push(...event.addedFiles);
   }
 
-  onFileChange(event: any) {
-    for (var i = 0; i < event.target.files.length; i++) {
-      this.myFiles.push(event.target.files[i]);
-    }
+  onRemove(event: any) {
+    console.log(event);
+    this.myFiles.splice(this.myFiles.indexOf(event), 1);
   }
 
   submit() {
-    const formData = new FormData();
+    console.log('files: ', this.myFiles);
 
     for (var i = 0; i < this.myFiles.length; i++) {
-      formData.append('file[]', this.myFiles[i]);
       this.isLoading = true;
       this.httpService
         .uploadGif(this.myFiles[i])
@@ -55,10 +50,10 @@ export class UploadComponent implements OnInit, OnDestroy {
           })
         )
         .subscribe((data) => {
-          // this.gifs = [...this.gifs, ...data.data];
           console.log(i, data);
         });
     }
   }
+
   ngOnDestroy(): void {}
 }

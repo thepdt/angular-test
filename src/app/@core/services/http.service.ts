@@ -45,7 +45,7 @@ export class HttpService {
     });
   }
 
-  uploadGif(file: string): Observable<APIResponse<Gif>> {
+  uploadGif(file: any): Observable<APIResponse<Gif>> {
     let params = new HttpParams()
       .set('api_key', env.GIPHY_KEY)
       .set('file', file);
