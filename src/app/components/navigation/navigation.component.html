@@ -1,4 +1,8 @@
 <div class="navigation-container">
+  <div *ngIf="isShowBackBtn" class="back-btn" (click)="goBack()">
+    <div class="back-icon">&laquo;</div>
+    <div>Back</div>
+  </div>
   <div class="nav">
     <a
       routerLink="/"

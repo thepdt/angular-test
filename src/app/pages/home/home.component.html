@@ -4,11 +4,15 @@
   </div>
   <ng-template #layer>
     <app-mosaic-layer
+      *ngIf="gifs.length > 0; else empty"
       [width]="mosaicLayerOptions.width"
       [columns]="mosaicLayerOptions.columns"
       [gutter]="16"
       [gifList]="gifs"
     ></app-mosaic-layer>
+    <ng-template #empty>
+      <div class="empty">No result!</div>
+    </ng-template>
   </ng-template>
   <div class="loading-more" *ngIf="isLoadingMore">
     <app-loading></app-loading>

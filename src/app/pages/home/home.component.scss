@@ -10,4 +10,12 @@
   .loading-more {
     margin-top: 64px;
   }
+
+  .empty {
+    color: #757575;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 80px);
+  }
 }
