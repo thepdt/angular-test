@@ -25,8 +25,14 @@ export class NavigationComponent implements OnInit {
     this.searchControl.valueChanges
       .pipe(debounceTime(500), distinctUntilChanged(), takeUntil(this.destroy))
       .subscribe((model) => {
-        if (!!model) this.router.navigate(['/search', model]).then();
-        else this.router.navigate(['/']).then();
+        console.log('model', model)
+        if (!!model) {
+          this.router.navigate(['/search', model]).then();
+        }
+        else {
+          console.log('to home')
+          this.router.navigate(['/']).then();
+        }
       });
 
     this.router.events.pipe(takeUntil(this.destroy)).subscribe((event: any) => {
@@ -39,7 +45,7 @@ export class NavigationComponent implements OnInit {
   }
 
   selectLink() {
-    this.searchControl.setValue('');
+    this.searchControl.setValue('', {emitEvent: false});
   }
 
   goBack() {
