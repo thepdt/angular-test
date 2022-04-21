@@ -33,22 +33,22 @@ export class UploadComponent implements OnInit, OnDestroy {
   submit() {
     console.log('files: ', this.fileList);
 
-    for (var i = 0; i < this.fileList.length; i++) {
-      this.isLoading = true;
-      this.httpService
-        .uploadGif(this.fileList[i])
-        .pipe(
-          catchError((error) => {
-            throw error;
-          }),
-          finalize(() => {
-            this.isLoading = false;
-          })
-        )
-        .subscribe((data) => {
-          console.log(i, data);
-        });
-    }
+    // for (var i = 0; i < this.fileList.length; i++) {
+    //   this.isLoading = true;
+    //   this.httpService
+    //     .uploadGif(this.fileList[i])
+    //     .pipe(
+    //       catchError((error) => {
+    //         throw error;
+    //       }),
+    //       finalize(() => {
+    //         this.isLoading = false;
+    //       })
+    //     )
+    //     .subscribe((data) => {
+    //       console.log(i, data);
+    //     });
+    // }
   }
 
   ngOnDestroy(): void {}

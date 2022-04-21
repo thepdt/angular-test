@@ -28,8 +28,7 @@
 .favorite-icon {
   width: 36px;
   height: 36px;
-  background: no-repeat url("/assets/images/favorite.png") 0 0;
-  background-color: transparent;
+  background: transparent url("/assets/images/favorite.png") no-repeat 0 0;
   background-size: 240px 80px;
   overflow: hidden;
   position: relative;

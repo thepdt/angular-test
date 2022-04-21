@@ -1,11 +1,10 @@
-import { ViewportRuler } from '@angular/cdk/scrolling';
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Gif } from '@core/models/giphy';
-import { DestroyService } from '@core/services/destroy.service';
-import { HttpService } from '@core/services/http.service';
-import { getItem, StorageItem } from '@core/utils/local-storage.utils';
-import { catchError, finalize, takeUntil } from 'rxjs';
+import {ViewportRuler} from '@angular/cdk/scrolling';
+import {Component, NgZone, OnInit} from '@angular/core';
+import {Gif} from '@core/models/giphy';
+import {DestroyService} from '@core/services/destroy.service';
+import {HttpService} from '@core/services/http.service';
+import {getItem, StorageItem} from '@core/utils/local-storage.utils';
+import {catchError, finalize, takeUntil} from 'rxjs';
 
 @Component({
   selector: 'app-favorite',

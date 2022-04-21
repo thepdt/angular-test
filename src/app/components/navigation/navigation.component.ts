@@ -25,8 +25,8 @@ export class NavigationComponent implements OnInit {
     this.searchControl.valueChanges
       .pipe(debounceTime(500), distinctUntilChanged(), takeUntil(this.destroy))
       .subscribe((model) => {
-        if (!!model) this.router.navigate(['/search', model]);
-        else this.router.navigate(['/']);
+        if (!!model) this.router.navigate(['/search', model]).then();
+        else this.router.navigate(['/']).then();
       });
 
     this.router.events.pipe(takeUntil(this.destroy)).subscribe((event: any) => {

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HomeComponent } from './home.component';
 import { MosaicLayoutModule } from '../../components/mosaic-layout/mosaic-layout.module';
-import { LoadingModule } from './../../components/loading/loading.module';
+import {LoadingModule} from "../../components/loading/loading.module";
 @NgModule({
   declarations: [HomeComponent],
   imports: [

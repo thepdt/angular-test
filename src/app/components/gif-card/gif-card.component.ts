@@ -1,14 +1,7 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  Input,
-  SimpleChanges,
-} from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Gif, GifWithPosition } from 'src/app/@core/models/giphy';
-import { getGifHeight } from 'src/app/@core/utils/gif.util';
+import {Component, Input, OnInit, SimpleChanges,} from '@angular/core';
+import {Router} from '@angular/router';
+import {GifWithPosition} from 'src/app/@core/models/giphy';
+import {getGifHeight} from 'src/app/@core/utils/gif.util';
 
 @Component({
   selector: 'app-gif-card',

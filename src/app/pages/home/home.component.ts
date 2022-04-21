@@ -1,12 +1,11 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription, finalize, takeUntil } from 'rxjs';
-import { Gif } from 'src/app/@core/models/giphy';
-import { HttpService } from 'src/app/@core/services/http.service';
-import { debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
-import { ViewportRuler } from '@angular/cdk/scrolling';
-import { DestroyService } from '@core/services/destroy.service';
+import {Component, NgZone, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {finalize, takeUntil} from 'rxjs';
+import {Gif} from 'src/app/@core/models/giphy';
+import {HttpService} from 'src/app/@core/services/http.service';
+import {catchError} from 'rxjs/operators';
+import {ViewportRuler} from '@angular/cdk/scrolling';
+import {DestroyService} from '@core/services/destroy.service';
 
 @Component({
   selector: 'app-home',
